@@ -1,14 +1,19 @@
-
 import './App.css';
+import Navbar from "./components/Navbar";
+import Home from "./components/Home";
 
 function App() {
-  return (
-    <div className="App">
-      <div className="content">
-        <h4>App Component</h4>
-      </div>
-    </div>
-  );
+
+    const title = "Welcome to the new blog"
+
+    return (
+        <div className="App">
+            <Navbar/>
+            <div className="content">
+                <Home />
+            </div>
+        </div>
+    );
 }
 
 export default App;
