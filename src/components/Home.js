@@ -1,18 +1,24 @@
+import {useState} from "react";
+
+
+
 const Home = () => {
 
-    const handleClick = () => {
-        console.log("HEllo")
-    }
+//    let name = 'mario';
+   const [name, setName] = useState('mario');
+   const [age, setAge] = useState(25);
 
-    const handleClickAgain = (name, e) => {
-        console.log("hello "+name, e.target);
+    const handleClick = () => {
+        //name='luigi';
+        setName('luigi');
+        setAge(30);
     }
 
     return (
         <div className="home">
             <h3>Homepage</h3>
+            <p>{name} is {age} years </p>
             <button onClick={handleClick}>Click me</button>
-            <button onClick={(e) => handleClickAgain('myName', e)}>Click again</button>
         </div>
     );
 
