@@ -4,21 +4,22 @@ import {useState} from "react";
 
 const Home = () => {
 
-//    let name = 'mario';
-   const [name, setName] = useState('mario');
-   const [age, setAge] = useState(25);
+    const [blogs, setBlogs] = useState([
+        {title: "My new website", body: 'lorem ipsum.....', author: 'me', id: '1'},
+        {title: "My new website1", body: 'lorem ipsum.....', author: 'you', id: '2'},
+        {title: "My new website2", body: 'lorem ipsum.....', author: 'us', id: '3'},
+    ]);
 
-    const handleClick = () => {
-        //name='luigi';
-        setName('luigi');
-        setAge(30);
-    }
 
     return (
         <div className="home">
-            <h3>Homepage</h3>
-            <p>{name} is {age} years </p>
-            <button onClick={handleClick}>Click me</button>
+            {blogs.map((blog) => ( //singular blog refers to each item in blogs array
+                <div className="blog-preview" key={blog.id}>
+                    <h2>{blog.title}</h2>
+                    <p>Written by {blog.author}</p>
+                    <p>{blog.body}</p>
+                </div>
+            ))}
         </div>
     );
 
