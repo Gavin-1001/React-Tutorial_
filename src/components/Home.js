@@ -5,6 +5,8 @@ import BlogList from "./BlogList";
 
 const Home = () => {
 
+    const [name, setName] = useState('mario');
+
     const [blogs, setBlogs] = useState([
         {title: "My new website", body: 'lorem ipsum.....', author: 'Mario', id: '1'},
         {title: "My new website1", body: 'lorem ipsum.....', author: 'Mario', id: '2'},
@@ -25,14 +27,16 @@ const Home = () => {
         //once initially when the component loads, and then anytime after when the data changes.
         // best used for fetching data
         console.log("use effect ran");
-        console.log(blogs)
-    }, []);
+        console.log(name)
+    }, [name]); //the useEffect will watch the name and only update when the name state has been updated, it is tied to the onclick button below
 
 
     return (
         <div className="home">
             <BlogList blogs={blogs} title="All Blogs" handleDeleteBlog={handleDeleteBlog}/>
             <BlogList blogs={blogs.filter((blog) => blog.author === 'Mario')} title="All Blogs"/>
+            <button onClick={() => setName('Luigi')}>Change name</button>
+            <p>{name}</p>
              {/*Only want to filter Mario's blogs*/}
         </div>
     );
