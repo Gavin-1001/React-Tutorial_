@@ -11,10 +11,19 @@ const Home = () => {
         {title: "My new website2", body: 'lorem ipsum.....', author: 'us', id: '3'},
     ]);
 
+    const handleDeleteBlog = (id) => {
+        //newBlogs filters the current array of blogs and when the button is pressed it will iterate through the array of blogs
+        //id of blog that was to be deleted will not be filtered into the newBlogs variable, then you set the newBlogs as the setBlogs
+        const newBlogs = blogs.filter(blog => blog.id !== id);
+
+        setBlogs(newBlogs);
+
+    }
+
 
     return (
         <div className="home">
-            <BlogList blogs={blogs} title="All Blogs"/>
+            <BlogList blogs={blogs} title="All Blogs" handleDeleteBlog={handleDeleteBlog}/>
             <BlogList blogs={blogs.filter((blog) => blog.author === 'Mario')} title="All Blogs"/>
              {/*Only want to filter Mario's blogs*/}
         </div>
