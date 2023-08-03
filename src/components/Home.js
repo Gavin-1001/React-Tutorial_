@@ -1,4 +1,5 @@
 import {useState} from "react";
+import BlogList from "./BlogList";
 
 
 
@@ -13,13 +14,7 @@ const Home = () => {
 
     return (
         <div className="home">
-            {blogs.map((blog) => ( //singular blog refers to each item in blogs array
-                <div className="blog-preview" key={blog.id}>
-                    <h2>{blog.title}</h2>
-                    <p>Written by {blog.author}</p>
-                    <p>{blog.body}</p>
-                </div>
-            ))}
+            <BlogList blogs={blogs} title="All Blogs"/>
         </div>
     );
 
