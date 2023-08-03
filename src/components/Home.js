@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import BlogList from "./BlogList";
 
 
@@ -19,6 +19,14 @@ const Home = () => {
         setBlogs(newBlogs);
 
     }
+
+    useEffect(() => {
+        //the useEffect function ()=> will run everytime there is a rerender on the webpage,
+        //once initially when the component loads, and then anytime after when the data changes.
+        // best used for fetching data
+        console.log("use effect ran");
+        console.log(blogs)
+    }, []);
 
 
     return (
