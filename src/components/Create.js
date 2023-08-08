@@ -1,4 +1,5 @@
 import {useState} from "react";
+import {useNavigate} from "react-router-dom";
 
 const Create = () => {
 
@@ -6,6 +7,8 @@ const Create = () => {
     const [body, setBody] = useState('');
     const [author, setAuthor] = useState('mario'); //for select there has to be an initial value. The initial value will be shown when the form is loaded for the first time
     const [isLoading, setIsLoading] = useState(false);
+    const navigate = useNavigate();
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -20,6 +23,7 @@ const Create = () => {
             console.log("New blog added.");
             setIsLoading(false);
         })
+        navigate("/");
     }
 
     return(
