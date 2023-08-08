@@ -4,6 +4,8 @@ import Home from "./components/Home";
 import {BrowserRouter as Router, Route, Routes} from "react-router-dom";
 import Create from "./components/Create";
 import BlogDetails from "./components/BlogDetails";
+import PageNotFound from "./components/Pages/PageNotFound";
+
 
 function App() {
 
@@ -16,13 +18,14 @@ function App() {
                 <div className="content">
                     <Routes>
                         <Route path="/" element={<Home />} />
-                    </Routes>
-                    <Routes>
+
                         <Route path="/create" element={<Create />} />
-                    </Routes>
-                    <Routes>
+
                         <Route path="/blogs/:id" element={<BlogDetails />} />
+
+                        <Route path="*" element={<PageNotFound />} />
                     </Routes>
+
                 </div>
             </div>
         </Router>
