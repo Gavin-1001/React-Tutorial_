@@ -7,11 +7,14 @@ const useFetch = (url) => {
     const [error, setError] = useState(null);
 
     useEffect(() => {
+        //abort controller
+        const abortController = new AbortController();
+
         setTimeout(() => { //the seTimeout simulates the isLoading conditional
-            fetch(url)
+            fetch(url, {signal: abortController.signal})
                 .then(res => {
                     console.log(res)
-                    if(!res.ok){
+                    if (!res.ok) {
                         throw Error('Could not fetch the data for that resource :(')
                     }
                     return res.json();
@@ -21,11 +24,15 @@ const useFetch = (url) => {
                     setIsLoading(false);
                     setError(null);
                 }).catch(err => {
-                setIsLoading(false);
-                setError(err.message);
-
+                if (err.name === 'AbortError') {
+                    console.log('fetch aborted')
+                } else {
+                    setIsLoading(false);
+                    setError(err.message);
+                }
             })
-        }, 500); //can add a timeout
+        }, 0.000001); //can add a timeout
+        return () => abortController.abort(); //stops fetch when the user clicks off the page, while fetch is running
     }, [url]); //the url is a dependency, so whenever the url changes it will rerender the useEffect hook
     return {data, isLoading, error};
 }
