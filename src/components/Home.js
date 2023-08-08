@@ -4,6 +4,7 @@ import useFetch from "../customHooks/useFetch";
 
 const Home = () => {
     //destructuring the array from useFetch the return
+
     const {data: blogs, isLoading, error} = useFetch('http://localhost:8000/blogs')
 
 
