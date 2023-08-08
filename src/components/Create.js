@@ -6,10 +6,17 @@ const Create = () => {
     const [body, setBody] = useState('');
     const [author, setAuthor] = useState('mario'); //for select there has to be an initial value. The initial value will be shown when the form is loaded for the first time
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const blog = {title, body, author}; //blog object
+        console.log(blog)
+
+    }
+
     return(
         <div className="create">
             <h2>Add a new blog!</h2>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <label>Blog Title: </label>
                 <input
                     type="text"
