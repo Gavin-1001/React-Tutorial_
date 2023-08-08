@@ -1,14 +1,14 @@
 {
-  "blogs" : [
+  "blogs": [
     {
       "title": "My First Blog",
-      "body": "Why do we use it?\nIt is a long established fact that a reader will be distracted ",
-      "author" : "Mario",
+      "body": "Why do we use it?It is e fro",
       "id": 1
-    },{
-      "title": "My Second Blog",
-      "body": "Why do we use it?\nIt is a long established fact that a reader will be distracted ",
-      "author" : "Yoshi",
+    },
+    {
+      "title": "Opening Party!",
+      "body": "Why do we use it?\nIt is a long est. alorum\" (The Extremes of Good and Evil) by Cicero",
+      "author": "yoshi",
       "id": 2
     }
   ]
